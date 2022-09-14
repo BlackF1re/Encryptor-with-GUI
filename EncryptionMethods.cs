@@ -11,7 +11,7 @@ namespace Encryptor_with_GUI
         #region First methods
         public static char[] EncryptAs1(List<char> freqsequence_list, string input_string, ref string output_encrypted)
         {
-            char [] inputChar_arr = input_string.ToCharArray();
+            char[] inputChar_arr = input_string.ToCharArray();
             for (int x = 0; x < input_string.Length; x++)
             {
                 int index_of = freqsequence_list.IndexOf(inputChar_arr[x]);
@@ -508,7 +508,6 @@ namespace Encryptor_with_GUI
                 '9',
                 '0',
 
-
                 ' ',
                 ',',
                 '!',
@@ -546,6 +545,6 @@ namespace Encryptor_with_GUI
         {
             MessageBox.Show("Error. Unexpected symbol");
         }
-
+        
     }
 }
