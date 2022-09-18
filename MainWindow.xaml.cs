@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Encryptor_with_GUI
 {
@@ -22,7 +23,7 @@ namespace Encryptor_with_GUI
             //
         }
 
-        //процессы шифровки
+        //шифровка
         public void FirstEncBtnClick(object sender, RoutedEventArgs e)
         {
             FreqDictGenerator(out Dictionary<char, int> freqdict, out List<char> freqsequence_list);
@@ -55,19 +56,27 @@ namespace Encryptor_with_GUI
         {
 
             string input_string = third_enc_input.Text;
-            //генерация межсимвольного мусора
-            int seed = SeedGenerator();//диапазон кодов символов, доступных пользователю для ввода одной клавишей
-            //составление внутреннего seed с маркерами и вывод пользовательского seed
-            int ascii_shift = Convert.ToInt32(ascii_shift_input.Text);
-            string seed_string = InternalSeedBuilder(seed);
-            userseed_output.Text = UserSeedOut(seed);
-            string output_encrypted = EncryptAs3(input_string, ascii_shift, seed_string);
-            third_enc_output.Text = output_encrypted;
-
-            if (ClearInputAfterEnc_Checkbox.IsChecked == true)
+            //генерация межсимвольных значений
+            int seed = SeedGenerator();
+            //составление внутреннего seed с маркерами (!--n--!) и вывод пользовательского seed
+            try
             {
-                third_enc_input.Clear();
+                int ascii_shift = Convert.ToInt32(ascii_shift_input.Text);
+                string seed_string = InternalSeedBuilder(seed);
+                userseed_output.Text = UserSeedOut(seed);
+                string output_encrypted = EncryptAs3(input_string, ascii_shift, seed_string);
+                third_enc_output.Text = output_encrypted;
+
+                if (ClearInputAfterEnc_Checkbox.IsChecked == true)
+                {
+                    third_enc_input.Clear();
+                }
             }
+            catch
+            {
+                ErrorMessage();
+            }
+
         }
 
 
@@ -85,7 +94,7 @@ namespace Encryptor_with_GUI
             }
         }
 
-        //процессы дешифровки
+        //дешифровка
 
         public void FirstDecBtnClick(object sender, RoutedEventArgs e)
         {
@@ -115,17 +124,25 @@ namespace Encryptor_with_GUI
 
         public void ThirdDecBtnClick(object sender, RoutedEventArgs e)
         {
-            char seed_char = Convert.ToChar(seedinput_dec.Text);     //введенный символ конвертится из string в char
-            string seed_string = SeedStringBuilder(seed_char);
-            string output_string = "";
-            string input_encrypted = third_dec_input.Text;
-            int ascii_shift = Convert.ToInt32(ascii_shift_input.Text);
-            output_string = DecryptAs3(seed_string, output_string, input_encrypted, ascii_shift);
-            third_dec_output.Text = output_string;
-
-            if (ClearInputAfterDec_Checkbox.IsChecked == true)
+            try
             {
-                third_dec_input.Clear();
+                char seed_char = Convert.ToChar(seedinput_dec.Text);     //введенный символ конвертится из string в char
+                string seed_string = SeedStringBuilder(seed_char);
+                string output_string = "";
+                string input_encrypted = third_dec_input.Text;
+                int ascii_shift = Convert.ToInt32(ascii_shift_input.Text);
+                output_string = DecryptAs3(seed_string, output_string, input_encrypted, ascii_shift);
+                third_dec_output.Text = output_string;
+
+                if (ClearInputAfterDec_Checkbox.IsChecked == true)
+                {
+                    third_dec_input.Clear();
+                }
+            }
+
+            catch
+            {
+                ErrorMessage();
             }
         }
 

@@ -26,20 +26,28 @@ namespace Encryptor_with_GUI
             string input_index_int = input_encrypted.Replace(",", string.Empty);
             int[] inputIndex_arr = new int[input_index_int.Length];
 
-            inputIndex_arr = input_index_int.Split(' ').Select(int.Parse).ToArray();
-            string output_string = "";
-            for (int i = 0; i < inputIndex_arr.Length; i++)//повторяется, пока не закончатся символы в строке
+            try
             {
-                for (int j = 0; j < freqsequence_list.Count; j++)//перебирает все символы в словаре
+                inputIndex_arr = input_index_int.Split(' ').Select(int.Parse).ToArray();
+                string output_string = "";
+                for (int i = 0; i < inputIndex_arr.Length; i++)//повторяется, пока не закончатся символы в строке
                 {
-                    if (inputIndex_arr[i] == j)
+                    for (int j = 0; j < freqsequence_list.Count; j++)//перебирает все символы в словаре
                     {
-                        string output_str = Convert.ToString(freqsequence_list[j]);
-                        output_string += output_str;
+                        if (inputIndex_arr[i] == j)
+                        {
+                            string output_str = Convert.ToString(freqsequence_list[j]);
+                            output_string += output_str;
+                        }
                     }
                 }
+                return output_string;
             }
-            return output_string;
+
+            catch
+            {
+                return "Пожалуйста, заполните окно ввода";
+            }
         }
 
         public static void FreqDictGenerator(out Dictionary<char, int> freqdict, out List<char> freqsequence_list)
@@ -114,25 +122,25 @@ namespace Encryptor_with_GUI
             try
             {
                 inputIndex_arr = input_encrypted.Split(' ').Select(int.Parse).ToArray();
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Error. Unexpected symbol");
-              
-            }
-            string output_string = "";
-            for (int i = 0; i < inputIndex_arr.Length; i++)//повторяется, пока не закончатся символы в строке
-            {
-                for (int j = 0; j < positions_list.Count; j++)//перебирает все символы в словаре
+                string output_string = "";
+                for (int i = 0; i < inputIndex_arr.Length; i++)//повторяется, пока не закончатся символы в строке
                 {
-                    if (inputIndex_arr[i] == j)
+                    for (int j = 0; j < positions_list.Count; j++)//перебирает все символы в словаре
                     {
-                        string output_str = Convert.ToString(positions_list[j]);
-                        output_string += output_str;
+                        if (inputIndex_arr[i] == j)
+                        {
+                            string output_str = Convert.ToString(positions_list[j]);
+                            output_string += output_str;
+                        }
                     }
                 }
+                return output_string;
             }
-            return output_string;
+
+            catch
+            {
+                return "Пожалуйста, заполните окно ввода";
+            }
         }
 
         public static List<char> PositionsListGenerator()//создание листа символов для дальнейшего вывода индексов символов
@@ -236,13 +244,21 @@ namespace Encryptor_with_GUI
 
         public static string LastSpaceCutter(string output_encrypted)
         {
-            output_encrypted = output_encrypted.Remove(output_encrypted.LastIndexOf(' '), 1);
-            return output_encrypted;
+            try
+            {
+                output_encrypted = output_encrypted.Remove(output_encrypted.LastIndexOf(' '), 1);
+                return output_encrypted;
+            }
+
+            catch
+            {
+                return "Пожалуйста, заполните окно ввода";
+            }
         }
 
         public static void ErrorMessage()//вывод сообщения об ошибке для случая ввода некорректного значения
         {
-            MessageBox.Show("Error. Unexpected symbol");
+            MessageBox.Show("Ошибка. Пожалуйста, заполните все поля");
         }
         
     }
