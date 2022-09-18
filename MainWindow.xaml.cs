@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Encryptor_with_GUI
 {
@@ -29,7 +28,7 @@ namespace Encryptor_with_GUI
             FreqDictGenerator(out Dictionary<char, int> freqdict, out List<char> freqsequence_list);
             string input_string = first_enc_input.Text;
             string output_encrypted = "";
-            char[] inputChar_arr = EncryptAs1(freqsequence_list, input_string, ref output_encrypted);
+            EncryptAs1(freqsequence_list, input_string, ref output_encrypted);
             first_enc_output.Text = LastSpaceCutter(output_encrypted);
             
             if (ClearInputAfterEnc_Checkbox.IsChecked == true)
@@ -43,7 +42,7 @@ namespace Encryptor_with_GUI
             List<char> positions_list = PositionsListGenerator();
             string input_string = second_enc_input.Text;
             string output_encrypted = "";
-            char[] inputChar_arr = EncryptAs2(positions_list, input_string, ref output_encrypted);
+            EncryptAs2(positions_list, input_string, ref output_encrypted);
             second_enc_output.Text = LastSpaceCutter(output_encrypted);
 
             if (ClearInputAfterEnc_Checkbox.IsChecked == true)
