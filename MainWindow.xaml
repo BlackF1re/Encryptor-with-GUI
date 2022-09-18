@@ -1,113 +1,545 @@
-﻿<Window x:Class="Encryptor_with_GUI.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Encryptor_with_GUI"
-        mc:Ignorable="d"
-Title="Encryptor" Height="475" Width="1366">
+﻿<Window
+    x:Class="Encryptor_with_GUI.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Encryptor_with_GUI"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Encryptor"
+    Width="1366"
+    Height="475"
+    mc:Ignorable="d">
     <Grid>
         <TabControl>
             <TabItem Header="Шифровка">
                 <Grid Background="#FFE5E5E5">
 
-                    <!--рамки шифровки-->
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="386" Margin="1054,10,0,0" VerticalAlignment="Top" Width="290"/>
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="386" Margin="710,10,0,0" VerticalAlignment="Top" Width="290"/>
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="386" Margin="18,10,0,0" VerticalAlignment="Top" Width="290"/>
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="386" Margin="365,10,0,0" VerticalAlignment="Top" Width="290"/>
+                    <!--  рамки шифровки  -->
+                    <Border
+                        Width="290"
+                        Height="386"
+                        Margin="1054,10,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        BorderBrush="Black"
+                        BorderThickness="1" />
+                    <Border
+                        Width="290"
+                        Height="386"
+                        Margin="710,10,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        BorderBrush="Black"
+                        BorderThickness="1" />
+                    <Border
+                        Width="290"
+                        Height="386"
+                        Margin="18,10,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        BorderBrush="Black"
+                        BorderThickness="1" />
+                    <Border
+                        Width="290"
+                        Height="386"
+                        Margin="365,10,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        BorderBrush="Black"
+                        BorderThickness="1" />
 
-                    <!--первый способ шифровки-->
-                    <TextBlock HorizontalAlignment="Left" Margin="81,18,0,0" TextWrapping="Wrap" Text="Шифровка первым способом" VerticalAlignment="Top"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="34,52,0,0" TextWrapping="Wrap" Text="Введите исходное сообщение ниже:" VerticalAlignment="Top" Width="259" Height="16"/>
-                    <TextBox x:Name="first_enc_input" HorizontalAlignment="Left" Margin="33,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" Height="120"/>
-                    <Button x:Name="first_enc_button" Content="Зашифровать!" HorizontalAlignment="Left" Margin="123,220,0,0" VerticalAlignment="Top" Click="FirstEncBtnClick"/>
-                    <TextBox x:Name="first_enc_output" HorizontalAlignment="Left" Margin="34,261,0,0" TextWrapping="Wrap" Text="Зашифрованное сообщение" VerticalAlignment="Top" Width="260" Height="120"/>
+                    <!--  первый способ шифровки  -->
+                    <TextBlock
+                        Margin="81,18,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Text="Шифровка первым способом"
+                        TextWrapping="Wrap" />
+                    <TextBlock
+                        Width="259"
+                        Height="16"
+                        Margin="34,52,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Text="Введите исходное сообщение ниже:"
+                        TextWrapping="Wrap" />
+                    <TextBox
+                        x:Name="first_enc_input"
+                        Width="260"
+                        Height="120"
+                        Margin="33,73,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        TextWrapping="Wrap" />
+                    <Button
+                        x:Name="first_enc_button"
+                        Margin="123,220,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Click="FirstEncBtnClick"
+                        Content="Зашифровать!" />
+                    <TextBox
+                        x:Name="first_enc_output"
+                        Width="260"
+                        Height="120"
+                        Margin="34,261,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Text="Зашифрованное сообщение"
+                        TextWrapping="Wrap" />
 
-                    <!--второй способ шифровки-->
-                    <TextBlock HorizontalAlignment="Left" Margin="429,18,0,0" TextWrapping="Wrap" Text="Шифровка вторым способом" VerticalAlignment="Top"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="380,50,0,0" TextWrapping="Wrap" Text="Введите исходное сообщение ниже:" VerticalAlignment="Top" Width="259" Height="16"/>
-                    <TextBox x:Name="second_enc_input" HorizontalAlignment="Left" Margin="380,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" Height="120"/>
-                    <Button x:Name="second_enc_button" Content="Зашифровать!" HorizontalAlignment="Left" Margin="469,220,0,0" VerticalAlignment="Top" Click="SecondEncBtnClick"/>
-                    <TextBox x:Name="second_enc_output" Margin="378,261,0,0" TextWrapping="Wrap" Text="Зашифрованное сообщение" VerticalAlignment="Top" Height="120" HorizontalAlignment="Left" Width="265"/>
+                    <!--  второй способ шифровки  -->
+                    <TextBlock
+                        Margin="429,18,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Text="Шифровка вторым способом"
+                        TextWrapping="Wrap" />
+                    <TextBlock
+                        Width="259"
+                        Height="16"
+                        Margin="380,50,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Text="Введите исходное сообщение ниже:"
+                        TextWrapping="Wrap" />
+                    <TextBox
+                        x:Name="second_enc_input"
+                        Width="260"
+                        Height="120"
+                        Margin="380,71,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        TextWrapping="Wrap" />
+                    <Button
+                        x:Name="second_enc_button"
+                        Margin="469,220,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Click="SecondEncBtnClick"
+                        Content="Зашифровать!" />
+                    <TextBox
+                        x:Name="second_enc_output"
+                        Width="265"
+                        Height="120"
+                        Margin="378,261,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Text="Зашифрованное сообщение"
+                        TextWrapping="Wrap" />
 
-                    <!--третий способ шифровки-->
-                    <TextBlock HorizontalAlignment="Left" Margin="773,18,0,0" TextWrapping="Wrap" Text="Шифровка третьим способом" VerticalAlignment="Top"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="725,52,0,0" TextWrapping="Wrap" Text="Введите исходное сообщение ниже:" VerticalAlignment="Top" Width="259" Height="16"/>
-                    <TextBox x:Name="third_enc_input" HorizontalAlignment="Left" Margin="725,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" Height="114"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="758,191,0,0" TextWrapping="Wrap" Text="Seed:" VerticalAlignment="Top" Height="18" Width="32"/>
-                    <TextBox x:Name="userseed_output" HorizontalAlignment="Left" Margin="790,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" Height="20" FontSize="10"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="860,191,0,0" TextWrapping="Wrap" Text="Сдвиг(0..10):" VerticalAlignment="Top" Height="18" Width="70"/>
-                    <TextBox x:Name="ascii_shift_input" HorizontalAlignment="Left" Margin="930,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" Height="18" FontSize="10"/>
-                    <Button x:Name="third_enc_button" Content="Зашифровать!" HorizontalAlignment="Left" Margin="814,225,0,0" VerticalAlignment="Top" Click="ThirdEncBtnClick" RenderTransformOrigin="0.498,0.906"/>
-                    <TextBox x:Name="third_enc_output" HorizontalAlignment="Left" Margin="725,261,0,0" TextWrapping="Wrap" Text="Зашифрованное сообщение" VerticalAlignment="Top" Width="260" Height="120"/>
+                    <!--  третий способ шифровки  -->
+                    <TextBlock
+                        Margin="773,18,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Text="Шифровка третьим способом"
+                        TextWrapping="Wrap" />
+                    <TextBlock
+                        Width="259"
+                        Height="16"
+                        Margin="725,52,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Text="Введите исходное сообщение ниже:"
+                        TextWrapping="Wrap" />
+                    <TextBox
+                        x:Name="third_enc_input"
+                        Width="260"
+                        Height="114"
+                        Margin="725,73,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        TextWrapping="Wrap" />
+                    <TextBlock
+                        Width="32"
+                        Height="18"
+                        Margin="758,191,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Text="Seed:"
+                        TextWrapping="Wrap" />
+                    <TextBox
+                        x:Name="userseed_output"
+                        Width="60"
+                        Height="20"
+                        Margin="790,191,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        FontSize="10"
+                        TextWrapping="Wrap" />
+                    <TextBlock
+                        Width="70"
+                        Height="18"
+                        Margin="860,191,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Text="Сдвиг(0..10):"
+                        TextWrapping="Wrap" />
+                    <TextBox
+                        x:Name="ascii_shift_input"
+                        Width="55"
+                        Height="18"
+                        Margin="930,191,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        FontSize="10"
+                        TextWrapping="Wrap" />
+                    <Button
+                        x:Name="third_enc_button"
+                        Margin="814,225,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Click="ThirdEncBtnClick"
+                        Content="Зашифровать!"
+                        RenderTransformOrigin="0.498,0.906" />
+                    <TextBox
+                        x:Name="third_enc_output"
+                        Width="260"
+                        Height="120"
+                        Margin="725,261,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Text="Зашифрованное сообщение"
+                        TextWrapping="Wrap" />
 
-                    <!--четвертый способ шифровки-->
-                    <TextBlock HorizontalAlignment="Left" Margin="1117,18,0,0" TextWrapping="Wrap" Text="Шифровка четвертым способом" VerticalAlignment="Top"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="1071,52,0,0" TextWrapping="Wrap" Text="Введите исходное сообщение ниже:" VerticalAlignment="Top" Width="259" Height="16"/>
-                    <TextBox x:Name="fourth_enc_input" HorizontalAlignment="Left" Margin="1070,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" Height="120"/>
-                    <Button x:Name="fourth_enc_button" Content="Зашифровать!" HorizontalAlignment="Left" Margin="1159,220,0,0" VerticalAlignment="Top" Click="FourthEncBtnClick" RenderTransformOrigin="0.498,0.906"/>
-                    <TextBox x:Name="fourth_enc_output" HorizontalAlignment="Left" Margin="1069,261,0,0" TextWrapping="Wrap" Text="Зашифрованное сообщение" VerticalAlignment="Top" Width="260" Height="120"/>
+                    <!--  четвертый способ шифровки  -->
+                    <TextBlock
+                        Margin="1117,18,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Text="Шифровка четвертым способом"
+                        TextWrapping="Wrap" />
+                    <TextBlock
+                        Width="259"
+                        Height="16"
+                        Margin="1071,52,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Text="Введите исходное сообщение ниже:"
+                        TextWrapping="Wrap" />
+                    <TextBox
+                        x:Name="fourth_enc_input"
+                        Width="260"
+                        Height="120"
+                        Margin="1070,73,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        TextWrapping="Wrap" />
+                    <Button
+                        x:Name="fourth_enc_button"
+                        Margin="1159,220,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Click="FourthEncBtnClick"
+                        Content="Зашифровать!"
+                        RenderTransformOrigin="0.498,0.906" />
+                    <TextBox
+                        x:Name="fourth_enc_output"
+                        Width="260"
+                        Height="120"
+                        Margin="1069,261,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Text="Зашифрованное сообщение"
+                        TextWrapping="Wrap" />
                 </Grid>
             </TabItem>
 
             <TabItem Header="Дешифровка">
                 <Grid Background="#FFE5E5E5">
 
-                    <!--рамки дешифровки-->
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="386" Margin="1054,10,0,0" VerticalAlignment="Top" Width="290"/>
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="386" Margin="710,10,0,0" VerticalAlignment="Top" Width="290"/>
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="386" Margin="18,10,0,0" VerticalAlignment="Top" Width="290"/>
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="386" Margin="365,10,0,0" VerticalAlignment="Top" Width="290"/>
+                    <!--  рамки дешифровки  -->
+                    <Border
+                        Width="290"
+                        Height="386"
+                        Margin="1054,10,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        BorderBrush="Black"
+                        BorderThickness="1" />
+                    <Border
+                        Width="290"
+                        Height="386"
+                        Margin="710,10,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        BorderBrush="Black"
+                        BorderThickness="1" />
+                    <Border
+                        Width="290"
+                        Height="386"
+                        Margin="18,10,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        BorderBrush="Black"
+                        BorderThickness="1" />
+                    <Border
+                        Width="290"
+                        Height="386"
+                        Margin="365,10,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        BorderBrush="Black"
+                        BorderThickness="1" />
 
-                    <!--первый способ дешифровки-->
-                    <TextBlock HorizontalAlignment="Left" Margin="81,18,0,0" TextWrapping="Wrap" Text="Дешифровка первым способом" VerticalAlignment="Top"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="34,52,0,0" TextWrapping="Wrap" Text="Введите зашифрованное сообщение ниже:" VerticalAlignment="Top" Width="259" Height="16"/>
-                    <TextBox x:Name="first_dec_input" HorizontalAlignment="Left" Margin="33,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" Height="120"/>
-                    <Button x:Name="first_dec_button" Content="Дешифровать!" HorizontalAlignment="Left" Margin="123,220,0,0" VerticalAlignment="Top" Click="FirstDecBtnClick"/>
-                    <TextBox x:Name="first_dec_output" HorizontalAlignment="Left" Margin="34,261,0,0" TextWrapping="Wrap" Text="Дешифрованное сообщение" VerticalAlignment="Top" Width="260" Height="120"/>
+                    <!--  первый способ дешифровки  -->
+                    <TextBlock
+                        Margin="81,18,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Text="Дешифровка первым способом"
+                        TextWrapping="Wrap" />
+                    <TextBlock
+                        Width="259"
+                        Height="16"
+                        Margin="34,52,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Text="Введите зашифрованное сообщение ниже:"
+                        TextWrapping="Wrap" />
+                    <TextBox
+                        x:Name="first_dec_input"
+                        Width="260"
+                        Height="120"
+                        Margin="33,73,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        TextWrapping="Wrap" />
+                    <Button
+                        x:Name="first_dec_button"
+                        Margin="123,220,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Click="FirstDecBtnClick"
+                        Content="Дешифровать!" />
+                    <TextBox
+                        x:Name="first_dec_output"
+                        Width="260"
+                        Height="120"
+                        Margin="34,261,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Text="Дешифрованное сообщение"
+                        TextWrapping="Wrap" />
 
-                    <!--второй способ дешифровки-->
-                    <TextBlock HorizontalAlignment="Left" Margin="429,18,0,0" TextWrapping="Wrap" Text="Дешифровка вторым способом" VerticalAlignment="Top"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="380,50,0,0" TextWrapping="Wrap" Text="Введите зашифрованное сообщение ниже:" VerticalAlignment="Top" Width="259" Height="16"/>
-                    <TextBox x:Name="second_dec_input" HorizontalAlignment="Left" Margin="380,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" Height="120"/>
-                    <Button x:Name="second_dec_button" Content="Дешифровать!" HorizontalAlignment="Left" Margin="469,220,0,0" VerticalAlignment="Top" Click="SecondDecBtnClick"/>
-                    <TextBox x:Name="second_dec_output" Margin="380,261,0,0" TextWrapping="Wrap" Text="Дешифрованное сообщение" VerticalAlignment="Top" Height="120" HorizontalAlignment="Left" Width="259"/>
+                    <!--  второй способ дешифровки  -->
+                    <TextBlock
+                        Margin="429,18,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Text="Дешифровка вторым способом"
+                        TextWrapping="Wrap" />
+                    <TextBlock
+                        Width="259"
+                        Height="16"
+                        Margin="380,50,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Text="Введите зашифрованное сообщение ниже:"
+                        TextWrapping="Wrap" />
+                    <TextBox
+                        x:Name="second_dec_input"
+                        Width="260"
+                        Height="120"
+                        Margin="380,71,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        TextWrapping="Wrap" />
+                    <Button
+                        x:Name="second_dec_button"
+                        Margin="469,220,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Click="SecondDecBtnClick"
+                        Content="Дешифровать!" />
+                    <TextBox
+                        x:Name="second_dec_output"
+                        Width="259"
+                        Height="120"
+                        Margin="380,261,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Text="Дешифрованное сообщение"
+                        TextWrapping="Wrap" />
 
-                    <!--третий способ дешифровки-->
-                    <TextBlock HorizontalAlignment="Left" Margin="773,18,0,0" TextWrapping="Wrap" Text="Дешифровка третьим способом" VerticalAlignment="Top"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="725,52,0,0" TextWrapping="Wrap" Text="Введите зашифрованное сообщение ниже:" VerticalAlignment="Top" Width="259" Height="16"/>
-                    <TextBox x:Name="third_dec_input" HorizontalAlignment="Left" Margin="725,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" Height="114"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="758,191,0,0" TextWrapping="Wrap" Text="Seed:" VerticalAlignment="Top" Height="18" Width="32"/>
-                    <TextBox x:Name="seedinput_dec" HorizontalAlignment="Left" Margin="790,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" Height="20" FontSize="10"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="860,191,0,0" TextWrapping="Wrap" Text="Сдвиг(0..10):" VerticalAlignment="Top" Height="18" Width="70"/>
-                    <TextBox x:Name="shiftinput_dec" HorizontalAlignment="Left" Margin="930,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" Height="18" FontSize="10"/>
-                    <Button x:Name="third_dec_button" Content="Дешифровать!" HorizontalAlignment="Left" Margin="814,225,0,0" VerticalAlignment="Top" Click="ThirdDecBtnClick" RenderTransformOrigin="0.498,0.906"/>
-                    <TextBox x:Name="third_dec_output" HorizontalAlignment="Left" Margin="725,261,0,0" TextWrapping="Wrap" Text="Дешифрованное сообщение" VerticalAlignment="Top" Width="260" Height="120"/>
+                    <!--  третий способ дешифровки  -->
+                    <TextBlock
+                        Margin="773,18,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Text="Дешифровка третьим способом"
+                        TextWrapping="Wrap" />
+                    <TextBlock
+                        Width="259"
+                        Height="16"
+                        Margin="725,52,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Text="Введите зашифрованное сообщение ниже:"
+                        TextWrapping="Wrap" />
+                    <TextBox
+                        x:Name="third_dec_input"
+                        Width="260"
+                        Height="114"
+                        Margin="725,73,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        TextWrapping="Wrap" />
+                    <TextBlock
+                        Width="32"
+                        Height="18"
+                        Margin="758,191,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Text="Seed:"
+                        TextWrapping="Wrap" />
+                    <TextBox
+                        x:Name="seedinput_dec"
+                        Width="60"
+                        Height="20"
+                        Margin="790,191,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        FontSize="10"
+                        TextWrapping="Wrap" />
+                    <TextBlock
+                        Width="70"
+                        Height="18"
+                        Margin="860,191,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Text="Сдвиг(0..10):"
+                        TextWrapping="Wrap" />
+                    <TextBox
+                        x:Name="shiftinput_dec"
+                        Width="55"
+                        Height="18"
+                        Margin="930,191,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        FontSize="10"
+                        TextWrapping="Wrap" />
+                    <Button
+                        x:Name="third_dec_button"
+                        Margin="814,225,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Click="ThirdDecBtnClick"
+                        Content="Дешифровать!"
+                        RenderTransformOrigin="0.498,0.906" />
+                    <TextBox
+                        x:Name="third_dec_output"
+                        Width="260"
+                        Height="120"
+                        Margin="725,261,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Text="Дешифрованное сообщение"
+                        TextWrapping="Wrap" />
 
-                    <!--четвертый способ дешифровки-->
-                    <TextBlock HorizontalAlignment="Left" Margin="1117,18,0,0" TextWrapping="Wrap" Text="Дешифровка четвертым способом" VerticalAlignment="Top"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="1071,52,0,0" TextWrapping="Wrap" Text="Введите зашифрованное сообщение ниже:" VerticalAlignment="Top" Width="259" Height="16"/>
-                    <TextBox x:Name="fourth_dec_input" HorizontalAlignment="Left" Margin="1070,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" Height="120"/>
-                    <Button x:Name="fourth_dec_button" Content="Дешифровать!" HorizontalAlignment="Left" Margin="1159,220,0,0" VerticalAlignment="Top" Click="FourthDecBtnClick" RenderTransformOrigin="0.498,0.906"/>
-                    <TextBox x:Name="fourth_dec_output" HorizontalAlignment="Left" Margin="1069,261,0,0" TextWrapping="Wrap" Text="Дешифрованное сообщение" VerticalAlignment="Top" Width="260" Height="120"/>
+                    <!--  четвертый способ дешифровки  -->
+                    <TextBlock
+                        Margin="1117,18,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Text="Дешифровка четвертым способом"
+                        TextWrapping="Wrap" />
+                    <TextBlock
+                        Width="259"
+                        Height="16"
+                        Margin="1071,52,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Text="Введите зашифрованное сообщение ниже:"
+                        TextWrapping="Wrap" />
+                    <TextBox
+                        x:Name="fourth_dec_input"
+                        Width="260"
+                        Height="120"
+                        Margin="1070,73,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        TextWrapping="Wrap" />
+                    <Button
+                        x:Name="fourth_dec_button"
+                        Margin="1159,220,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Click="FourthDecBtnClick"
+                        Content="Дешифровать!"
+                        RenderTransformOrigin="0.498,0.906" />
+                    <TextBox
+                        x:Name="fourth_dec_output"
+                        Width="260"
+                        Height="120"
+                        Margin="1069,261,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Text="Дешифрованное сообщение"
+                        TextWrapping="Wrap" />
                 </Grid>
             </TabItem>
 
             <TabItem Header="Настройки">
                 <Grid Background="#FFE5E5E5">
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="154" Margin="10,10,0,0" VerticalAlignment="Top" Width="1196"/>
-                    <CheckBox x:Name="ClearInputAfterEnc_Checkbox" Content="Очистить окно ввода после шифровки" HorizontalAlignment="Left" Margin="35,38,0,0" VerticalAlignment="Top" IsChecked="True" FontSize="16" Checked="ClearInputAfterEnc_Checkbox_Checked"/>
-                    <CheckBox x:Name="ClearInputAfterDec_Checkbox" Content="Очистить окно ввода после дешифровки" HorizontalAlignment="Left" Margin="35,108,0,0" VerticalAlignment="Top" Height="21" FontSize="16" Checked="ClearInputAfterDec_Checkbox_Checked"/>
-                    <Label Content="Позволяет автоматически очищать окно ввода незашифрованного сообщения. Отключать не рекомендуется." HorizontalAlignment="Left" Margin="380,32,0,0" VerticalAlignment="Top" Width="826" FontSize="16"/>
-                    <Label Content="Позволяет автоматически очищать окно ввода уже зашифрованного сообщения." HorizontalAlignment="Left" Margin="380,102,0,0" VerticalAlignment="Top" Width="618" FontSize="16"/>
+                    <Border
+                        Width="1196"
+                        Height="154"
+                        Margin="10,10,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        BorderBrush="Black"
+                        BorderThickness="1" />
+                    <CheckBox
+                        x:Name="ClearInputAfterEnc_Checkbox"
+                        Margin="35,38,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Checked="ClearInputAfterEnc_Checkbox_Checked"
+                        Content="Очистить окно ввода после шифровки"
+                        FontSize="16"
+                        IsChecked="True" />
+                    <CheckBox
+                        x:Name="ClearInputAfterDec_Checkbox"
+                        Height="21"
+                        Margin="35,108,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Checked="ClearInputAfterDec_Checkbox_Checked"
+                        Content="Очистить окно ввода после дешифровки"
+                        FontSize="16" />
+                    <Label
+                        Width="826"
+                        Margin="380,32,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Content="Позволяет автоматически очищать окно ввода незашифрованного сообщения. Отключать не рекомендуется."
+                        FontSize="16" />
+                    <Label
+                        Width="618"
+                        Margin="380,102,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Content="Позволяет автоматически очищать окно ввода уже зашифрованного сообщения."
+                        FontSize="16" />
                 </Grid>
             </TabItem>
 
             <TabItem Header="О программе">
                 <Grid Background="#FFE5E5E5">
-                    <Label Content="Первый способ. Ключ шифра содержит в себе определенный набор символов. Определяется частота появления каждого символа в ключе и &#xA;в зависимости от нее символу присваивается код – количество вхождений конкретного символа в ключ. Во время шифровки сообщения каждый символ заменяется его кодом. &#xA;Ключ шифра генерируется внутри программы и не подлежит изменению пользователем.&#xA;&#xA;Второй способ. Каждому символу присваивается код в зависимости от очередности его появления в тексте – ключе. Ключ шифра генерируется внутри программы, не подлежит изменению пользователем.&#xA;&#xA;Третий способ. Символы исходного текста заменяются на символы, полученные из исходного путем сдвига их кода ASCII на заданную пользователем величину. &#xA;Далее между символами сообщения помещается seed, сгенерированный случайным образом.&#xA;При расшифровке пользователю требуется ввести кроме зашифрованного сообщения еще seed и значение сдвига.&#xD;&#xA;&#xD;&#xA;Четвертый способ. То же, что и 2, но с другим словарем." HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="236"/>
-                    <Label Content="Encryptor v1.0-b9" HorizontalAlignment="Left" Margin="10,370,0,0" VerticalAlignment="Top" Width="108"/>
+                    <Label
+                        Height="236"
+                        Margin="10,10,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Content="Первый способ. Ключ шифра содержит в себе определенный набор символов. Определяется частота появления каждого символа в ключе и &#xA;в зависимости от нее символу присваивается код – количество вхождений конкретного символа в ключ. Во время шифровки сообщения каждый символ заменяется его кодом. &#xA;Ключ шифра генерируется внутри программы и не подлежит изменению пользователем.&#xA;&#xA;Второй способ. Каждому символу присваивается код в зависимости от очередности его появления в тексте – ключе. Ключ шифра генерируется внутри программы, не подлежит изменению пользователем.&#xA;&#xA;Третий способ. Символы исходного текста заменяются на символы, полученные из исходного путем сдвига их кода ASCII на заданную пользователем величину. &#xA;Далее между символами сообщения помещается seed, сгенерированный случайным образом.&#xA;При расшифровке пользователю требуется ввести кроме зашифрованного сообщения еще seed и значение сдвига.&#xA;&#xA;Четвертый способ. Работает по тому же принципу, что и второй, но с другим словарем." />
+                    <Label
+                        Width="108"
+                        Margin="10,370,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Content="Encryptor v1.0" />
                 </Grid>
             </TabItem>
 

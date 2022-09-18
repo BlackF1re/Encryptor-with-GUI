@@ -55,14 +55,12 @@ namespace Encryptor_with_GUI
         {
 
             string input_string = third_enc_input.Text;
-            //string output_encrypted = "";
             //генерация межсимвольного мусора
             int seed = SeedGenerator();//диапазон кодов символов, доступных пользователю для ввода одной клавишей
             //составление внутреннего seed с маркерами и вывод пользовательского seed
             int ascii_shift = Convert.ToInt32(ascii_shift_input.Text);
             string seed_string = InternalSeedBuilder(seed);
             userseed_output.Text = UserSeedOut(seed);
-            //third_enc_output.Text 
             string output_encrypted = EncryptAs3(input_string, ascii_shift, seed_string);
             third_enc_output.Text = output_encrypted;
 
@@ -71,8 +69,7 @@ namespace Encryptor_with_GUI
                 third_enc_input.Clear();
             }
         }
-        //public static char[] EncryptAs2(List<char> dictionary, string input_string, ref string output_encrypted)
-        //char[] inputChar_arr = EncryptAs2(positions_list, input_string, ref output_encrypted);
+
 
         public void FourthEncBtnClick(object sender, RoutedEventArgs e)
         {
